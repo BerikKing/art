@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f1e8" />
+    <title data-admin-key="pageTitle">Редактор сайта</title>
+    <link rel="stylesheet" href="admin.css" />
+    <script src="admin.js" defer></script>
+  </head>
+  <body>
+    <div class="auth-screen" id="auth-screen" hidden></div>
+    <div class="editor-shell" id="editor-shell" hidden>
+      <header class="editor-header">
+        <a class="editor-brand" href="/" target="_blank" rel="noreferrer"><span class="brand-dot">✳</span><span><span data-admin-key="brand">Мастерская</span><small data-admin-key="brandSub">редактор сайта</small></span></a>
+        <div class="header-actions">
+          <span class="save-status" id="save-status" role="status">Все изменения сохранены</span>
+          <button class="button button-quiet password-change-button" id="change-password-button" type="button" aria-label="Сменить пароль" data-admin-aria="changePassword"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"></circle><path d="M11 12 21 2m-5 2 4 4m-7-1 3 3"></path></svg><span class="password-button-label" data-admin-key="changePassword">Сменить пароль</span></button>
+          <button class="button button-quiet" id="logout-button" type="button" data-admin-key="logout">Выйти</button>
+          <button class="button button-primary" id="save-button" type="button" data-admin-key="save">Сохранить</button>
+        </div>
+      </header>
+
+      <dialog class="password-dialog" id="password-dialog" aria-labelledby="password-dialog-title">
+        <section class="password-card">
+          <div class="password-dialog-heading"><div><p class="kicker" data-admin-key="accountSecurity">БЕЗОПАСНОСТЬ</p><h2 id="password-dialog-title" data-admin-key="changePasswordTitle">Сменить пароль</h2></div><button class="password-dialog-close" id="password-dialog-close" type="button" aria-label="Закрыть" data-admin-aria="closeDialog">×</button></div>
+          <p class="password-intro" data-admin-key="passwordIntro">Для смены пароля сначала введи текущий пароль.</p>
+          <form id="password-form">
+            <label><span data-admin-key="currentPassword">Текущий пароль</span><input name="currentPassword" type="password" autocomplete="current-password" required /></label>
+            <label><span data-admin-key="newPassword">Новый пароль</span><input name="newPassword" type="password" autocomplete="new-password" minlength="12" required /></label>
+            <label><span data-admin-key="repeatNewPassword">Повтори новый пароль</span><input name="confirmPassword" type="password" autocomplete="new-password" minlength="12" required /></label>
+            <small class="password-message" id="password-message" role="alert"></small>
+            <div class="password-dialog-actions"><button class="button button-quiet" id="password-cancel" type="button" data-admin-key="cancel">Отмена</button><button class="button button-primary" id="password-submit" type="submit" data-admin-key="savePassword">Сохранить пароль</button></div>
+          </form>
+        </section>
+      </dialog>
+
+      <main class="editor-layout">
+        <section class="editor-panel" aria-label="Настройки сайта" data-admin-aria="siteSettings">
+          <div class="panel-heading"><p class="kicker" data-admin-key="yourSite">Ваш сайт</p><h1 data-admin-html="panelTitle">Настройте<br /><em>по-своему</em></h1><p data-admin-key="panelIntro">Меняйте тексты, палитру и изображения. Справа можно сразу увидеть результат.</p></div>
+          <div class="language-editor-tabs" role="group" aria-label="Язык редактирования" data-admin-aria="siteLanguageGroup"><span data-admin-key="siteLanguage">Язык сайта</span><button type="button" data-edit-language="ru" aria-pressed="true">RU</button><button type="button" data-edit-language="en" aria-pressed="false">EN</button><button type="button" data-edit-language="uk" aria-pressed="false">UK</button></div>
+          <div class="admin-language-tabs" role="group" aria-label="Язык админки" data-admin-aria="adminLanguageGroup"><span data-admin-key="adminLanguage">Язык админки</span><button type="button" data-admin-language="ru" aria-pressed="false">RU</button><button type="button" data-admin-language="en" aria-pressed="true">EN</button><button type="button" data-admin-language="uk" aria-pressed="false">UK</button></div>
+          <form id="site-form">
+            <details class="editor-section" id="identity-section" open>
+              <summary><span class="section-number">01</span><span data-admin-key="mainSection">Главная</span><span class="summary-plus">+</span></summary>
+              <div class="section-fields">
+                <label><span data-admin-key="artistName">Имя художника</span><input name="artistName" maxlength="80" placeholder="Имя Фамилия" data-admin-placeholder="artistNamePlaceholder" /></label>
+                <label><span data-admin-key="city">Город</span><input name="city" maxlength="80" placeholder="Алматы" data-admin-placeholder="cityPlaceholder" /></label>
+                <input type="hidden" name="logoImage" />
+                <div class="upload-field"><div><strong data-admin-key="logoPhoto">Логотип (фото)</strong><small data-admin-key="logoHint">Лучше квадратное изображение. JPG, PNG или WebP до 8 МБ — фото оптимизируется при загрузке</small></div><div class="upload-actions"><label class="upload-button"><span data-admin-key="upload">Загрузить</span><input type="file" accept="image/jpeg,image/png,image/webp" data-image-key="logoImage" /></label><button class="clear-image" type="button" data-clear-image="logoImage" data-admin-key="remove">Убрать</button></div></div>
+                <div class="image-preview logo-preview" id="logoImage-preview"></div>
+                <div class="language-visibility"><strong data-admin-key="headerLanguages">Языки в шапке сайта</strong><label class="visibility-toggle"><input name="languageVisibleRu" type="checkbox" /> Русский</label><label class="visibility-toggle"><input name="languageVisibleEn" type="checkbox" /> English</label><label class="visibility-toggle"><input name="languageVisibleUk" type="checkbox" /> Українська</label></div>
+                <label><span data-admin-key="heroTitle">Заголовок на первом экране</span><textarea name="heroTitle" data-i18n-field="heroTitle" rows="2" maxlength="180" placeholder="Замечать&#10;то, что мимо" data-admin-placeholder="heroTitlePlaceholder"></textarea><small data-admin-key="lineBreakHint">Перенос строки задаёт перенос в заголовке.</small></label>
+                <label><span data-admin-key="shortDescription">Короткое описание</span><textarea name="heroIntro" data-i18n-field="heroIntro" rows="3" maxlength="500"></textarea></label>
+                <input type="hidden" name="heroImage" />
+                <div class="upload-field"><div><strong data-admin-key="heroCover">Обложка главной</strong><small data-admin-key="imageLimit">JPG, PNG или WebP до 8 МБ — фото оптимизируется при загрузке</small></div><div class="upload-actions"><label class="upload-button"><span data-admin-key="upload">Загрузить</span><input type="file" accept="image/jpeg,image/png,image/webp" data-image-key="heroImage" /></label><button class="clear-image" type="button" data-clear-image="heroImage" data-admin-key="remove">Убрать</button></div></div>
+                <div class="image-preview" id="heroImage-preview"></div>
+              </div>
+            </details>
+
+            <details class="editor-section" id="appearance-section">
+              <summary><span class="section-number">02</span><span data-admin-key="colorsSection">Цвета</span><span class="summary-plus">+</span></summary>
+              <div class="section-fields color-fields">
+                <label><span data-admin-key="backgroundColor">Фон сайта</span><input name="paperColor" type="color" /></label>
+                <label><span data-admin-key="primaryColor">Основной цвет</span><input name="greenColor" type="color" /></label>
+                <label><span data-admin-key="accentColor">Акцентный цвет</span><input name="accentColor" type="color" /></label>
+              </div>
+            </details>
+
+            <details class="editor-section" id="works-section" open>
+              <summary><span class="section-number">03</span><span data-admin-key="gallerySection">Галерея</span><span class="summary-plus">+</span></summary>
+              <div class="section-fields">
+                <label><span data-admin-key="sectionTitle">Заголовок раздела</span><input name="worksTitle" data-i18n-field="worksTitle" maxlength="100" /></label>
+                <label><span data-admin-key="headingCaption">Подпись под заголовком</span><textarea name="worksNote" data-i18n-field="worksNote" rows="2" maxlength="300"></textarea></label>
+                <div class="work-list" id="work-list"></div>
+                <button class="button button-outline add-work" id="add-work" type="button" data-admin-key="addWork">＋ Добавить работу</button>
+                <small class="limit-note" data-admin-key="worksLimit">Можно добавить до 30 работ. JPG, PNG и WebP до 8 МБ — фото оптимизируется при загрузке.</small>
+              </div>
+            </details>
+
+            <details class="editor-section" id="about-section">
+              <summary><span class="section-number">04</span><span data-admin-key="aboutSection">О художнике</span><span class="summary-plus">+</span></summary>
+              <div class="section-fields">
+                <label><span data-admin-key="heading">Заголовок</span><input name="aboutTitle" data-i18n-field="aboutTitle" maxlength="140" /></label>
+                <label><span data-admin-key="mainText">Основной текст</span><textarea name="aboutText" data-i18n-field="aboutText" rows="5" maxlength="1200"></textarea></label>
+                <label><span data-admin-key="shortCaption">Короткая подпись</span><textarea name="aboutTextSmall" data-i18n-field="aboutTextSmall" rows="3" maxlength="500"></textarea></label>
+                <input type="hidden" name="aboutImage" />
+                <div class="upload-field"><div><strong data-admin-key="portraitStudio">Портрет или фото мастерской</strong><small data-admin-key="imageLimit">JPG, PNG или WebP до 8 МБ — фото оптимизируется при загрузке</small></div><div class="upload-actions"><label class="upload-button"><span data-admin-key="upload">Загрузить</span><input type="file" accept="image/jpeg,image/png,image/webp" data-image-key="aboutImage" /></label><button class="clear-image" type="button" data-clear-image="aboutImage" data-admin-key="remove">Убрать</button></div></div>
+                <div class="image-preview portrait-preview" id="aboutImage-preview"></div>
+              </div>
+            </details>
+
+            <details class="editor-section" id="contact-section">
+              <summary><span class="section-number">05</span><span data-admin-key="contactsSection">Контакты</span><span class="summary-plus">+</span></summary>
+              <div class="section-fields">
+                <label><span data-admin-key="heading">Заголовок</span><input name="contactTitle" data-i18n-field="contactTitle" maxlength="140" /></label>
+                <label><span data-admin-key="text">Текст</span><textarea name="contactText" data-i18n-field="contactText" rows="3" maxlength="500"></textarea></label>
+                <div class="contact-setting"><label><span data-admin-key="email">Почта</span><input name="email" type="email" maxlength="160" placeholder="name@example.com" /></label><label class="visibility-toggle"><input type="checkbox" name="contactVisibleEmail" /> <span data-admin-key="show">Показывать</span></label></div>
+                <div class="contact-setting"><label><span data-admin-key="phone">Номер телефона</span><input name="phone" type="tel" maxlength="40" placeholder="+7 701 123 45 67" /><small data-admin-key="phoneHint">Укажи номер с кодом страны.</small></label><label class="visibility-toggle"><input type="checkbox" name="contactVisiblePhone" /> <span data-admin-key="show">Показывать</span></label></div>
+                <div class="contact-setting"><label><span>Instagram</span><input name="instagram" type="url" maxlength="300" placeholder="https://instagram.com/username" /></label><label class="visibility-toggle"><input type="checkbox" name="contactVisibleInstagram" /> <span data-admin-key="show">Показывать</span></label></div>
+                <div class="contact-setting"><label><span>WhatsApp</span><input name="whatsapp" type="text" maxlength="300" placeholder="+7 701 123 45 67" /><small data-admin-key="whatsappHint">Укажи номер с кодом страны или ссылку wa.me.</small></label><label class="visibility-toggle"><input type="checkbox" name="contactVisibleWhatsapp" /> <span data-admin-key="show">Показывать</span></label></div>
+                <div class="contact-setting"><label><span>Facebook</span><input name="facebook" type="url" maxlength="300" placeholder="https://facebook.com/username" /></label><label class="visibility-toggle"><input type="checkbox" name="contactVisibleFacebook" /> <span data-admin-key="show">Показывать</span></label></div>
+                <div class="contact-setting"><label><span>TikTok</span><input name="tiktok" type="url" maxlength="300" placeholder="https://tiktok.com/@username" /></label><label class="visibility-toggle"><input type="checkbox" name="contactVisibleTiktok" /> <span data-admin-key="show">Показывать</span></label></div>
+                <small class="limit-note" data-admin-key="contactVisibilityHint">Сними галочку, чтобы скрыть канал на сайте. Если ссылка или номер не указаны, канал всё равно не появится.</small>
+              </div>
+            </details>
+            <details class="editor-section" id="legal-section">
+              <summary><span class="section-number">06</span><span data-admin-key="legalSection">Правовая информация</span><span class="summary-plus">+</span></summary>
+              <div class="section-fields">
+                <p class="legal-editor-note" data-admin-key="legalHint">Для сайта в Великобритании заполните эти данные до начала продаж. Они появятся на страницах Privacy Notice и Terms of Sale.</p>
+                <label><span data-admin-key="legalName">Юридическое имя / название бизнеса</span><input name="legalName" maxlength="160" placeholder="Artist Name or Studio Ltd" /></label>
+                <label><span data-admin-key="businessAddress">Адрес для публикации</span><textarea name="businessAddress" rows="3" maxlength="300" placeholder="Street, city, postcode, United Kingdom"></textarea></label>
+                <label><span data-admin-key="companyNumber">Company number (если есть)</span><input name="companyNumber" maxlength="60" placeholder="12345678" /></label>
+                <label><span data-admin-key="vatNumber">VAT number (если есть)</span><input name="vatNumber" maxlength="60" placeholder="GB 123 4567 89" /></label>
+              </div>
+            </details>
+          </form>
+          <div class="panel-bottom"><span data-admin-key="saveHint">Предпросмотр обновляется сразу. Удаление фото вступит в силу после сохранения сайта.</span><button class="button button-primary" id="save-button-bottom" type="button" data-admin-key="saveSite">Сохранить сайт</button></div>
+        </section>
+
+        <section class="preview-panel" aria-label="Предпросмотр сайта" data-admin-aria="previewSite">
+          <div class="preview-topline"><span><i></i> <span data-admin-key="previewSite">Предпросмотр сайта</span></span><a href="/" target="_blank" rel="noreferrer" data-admin-key="openSeparately">Открыть отдельно ↗</a></div>
+          <div class="preview-frame-wrap"><iframe id="site-preview" src="/?preview=1" title="Предпросмотр сайта художника" data-admin-title="previewArtist"></iframe></div>
+          <p class="preview-footnote" data-admin-key="previewHint">Предпросмотр интерактивный: можно прокручивать страницу и открывать работы.</p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

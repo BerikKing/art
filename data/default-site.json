@@ -1,0 +1,168 @@
+{
+    "artistName": "",
+    "city": "",
+    "legalName": "",
+    "businessAddress": "",
+    "companyNumber": "",
+    "vatNumber": "",
+    "logoImage": "",
+    "languageVisibility": {
+        "ru": false,
+        "en": true,
+        "uk": true
+    },
+    "heroImage": "",
+    "aboutImage": "",
+    "email": "hello@example.com",
+    "phone": "",
+    "instagram": "https://instagram.com/",
+    "whatsapp": "https://wa.me/23782787283",
+    "facebook": "https://instagram.com/",
+    "tiktok": "https://instagram.com/",
+    "contactVisibility": {
+        "email": true,
+        "phone": true,
+        "instagram": true,
+        "whatsapp": true,
+        "facebook": true,
+        "tiktok": true
+    },
+    "paperColor": "#f4f1e8",
+    "greenColor": "#355e52",
+    "accentColor": "#d66e56",
+    "works": [
+        {
+            "category": "painting",
+            "genre": "",
+            "year": "2025",
+            "dimensions": "80 × 100 см",
+            "image": "",
+            "artworkIndex": 0
+        },
+        {
+            "category": "painting",
+            "genre": "",
+            "year": "2024",
+            "dimensions": "60 × 80 см",
+            "image": "",
+            "artworkIndex": 1
+        },
+        {
+            "category": "graphic",
+            "genre": "",
+            "year": "2025",
+            "dimensions": "30 × 42 см",
+            "image": "",
+            "artworkIndex": 2
+        },
+        {
+            "category": "graphic",
+            "genre": "",
+            "year": "2023",
+            "dimensions": "42 × 30 см",
+            "image": "",
+            "artworkIndex": 3
+        }
+    ],
+    "translations": {
+        "ru": {
+            "heroTitle": "Замечать\nто, что мимо",
+            "heroIntro": "Я собираю впечатления, фактуры и тихие моменты в живопись. Здесь — мой способ смотреть на мир.",
+            "worksTitle": "Избранные работы",
+            "worksNote": "Каждая работа — маленькое исследование цвета, памяти и места.",
+            "aboutTitle": "Искусство начинаетсяс внимания",
+            "aboutText": "Я — художник, который верит в силу простых вещей: света на стене, случайного разговора, запаха после дождя. В своих работах я соединяю наблюдение и воображение, чтобы сохранить то, что обычно ускользает.",
+            "aboutTextSmall": "Работаю с живописью и графикой. Открыта к выставкам, коллаборациям и новым проектам.",
+            "contactTitle": "Давайте создадим что-нибудь вместе",
+            "contactText": "По вопросам приобретения работ, выставок и сотрудничества — напишите мне.",
+            "works": [
+                {
+                    "title": "Сад в апреле",
+                    "medium": "акрил, холст",
+                    "description": "О весне, которая приходит не сразу: сначала в воздухе, потом в цвете."
+                },
+                {
+                    "title": "Тихий свет",
+                    "medium": "масло, холст",
+                    "description": "Последний солнечный час на стене старого дома."
+                },
+                {
+                    "title": "Собирательница",
+                    "medium": "бумага, гуашь",
+                    "description": "Ботанический портрет о любопытстве и внимании к деталям."
+                },
+                {
+                    "title": "Память воды",
+                    "medium": "акварель, бумага",
+                    "description": "Пейзаж, который остаётся с тобой дольше самого путешествия."
+                }
+            ]
+        },
+        "en": {
+            "heroTitle": "Noticing\nwhat others miss",
+            "heroIntro": "I gather impressions, textures, and quiet moments in paint. This is my way of looking at the world.",
+            "worksTitle": "Selected works",
+            "worksNote": "Each piece is a small study of color, memory, and place.",
+            "aboutTitle": "Art beginswith attention",
+            "aboutText": "I believe in the quiet power of simple things: light on a wall, a chance conversation, the smell of rain. My work brings observation and imagination together to hold on to what usually slips away.",
+            "aboutTextSmall": "I work in painting and graphic art. Open to exhibitions, collaborations, and new projects.",
+            "contactTitle": "Let's makesomething together",
+            "contactText": "For artwork enquiries, exhibitions, and collaborations, send me a note.",
+            "works": [
+                {
+                    "title": "Garden in April",
+                    "medium": "acrylic on canvas",
+                    "description": "Spring does not arrive all at once: first in the air, then in color."
+                },
+                {
+                    "title": "Quiet Light",
+                    "medium": "oil on canvas",
+                    "description": "The last hour of sunlight on the wall of an old house."
+                },
+                {
+                    "title": "The Gatherer",
+                    "medium": "gouache on paper",
+                    "description": "A botanical portrait about curiosity and attention to detail."
+                },
+                {
+                    "title": "Memory of Water",
+                    "medium": "watercolor on paper",
+                    "description": "A landscape that stays with you long after the journey ends."
+                }
+            ]
+        },
+        "uk": {
+            "heroTitle": "Помічати\nте, що оминають",
+            "heroIntro": "Я збираю враження, фактури й тихі миті у живописі. Це мій спосіб дивитися на світ.",
+            "worksTitle": "Вибрані роботи",
+            "worksNote": "Кожна робота — невелике дослідження кольору, пам’яті та місця.",
+            "aboutTitle": "Мистецтво починаєтьсяз уваги",
+            "aboutText": "Я вірю в тиху силу простих речей: світла на стіні, випадкової розмови, запаху після дощу. У своїх роботах поєдную спостереження й уяву, щоб зберегти те, що зазвичай вислизає.",
+            "aboutTextSmall": "Працюю з живописом і графікою. Відкрита до виставок, колаборацій і нових проєктів.",
+            "contactTitle": "Створімощось разом",
+            "contactText": "Щодо придбання робіт, виставок і співпраці — напишіть мені.",
+            "works": [
+                {
+                    "title": "Сад у квітні",
+                    "medium": "акрил, полотно",
+                    "description": "Весна приходить не одразу: спочатку в повітрі, а потім у кольорі."
+                },
+                {
+                    "title": "Тихе світло",
+                    "medium": "олія, полотно",
+                    "description": "Остання сонячна година на стіні старого будинку."
+                },
+                {
+                    "title": "Збирачка",
+                    "medium": "папір, гуаш",
+                    "description": "Ботанічний портрет про цікавість і увагу до деталей."
+                },
+                {
+                    "title": "Пам’ять води",
+                    "medium": "акварель, папір",
+                    "description": "Пейзаж, який залишається з тобою довше за саму мандрівку."
+                }
+            ]
+        }
+    }
+}

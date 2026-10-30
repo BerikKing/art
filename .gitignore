@@ -1,0 +1,7 @@
+.next/
+node_modules/
+data/admin-auth.json
+data/session-secret
+data/login-attempts.json
+public/uploads/*
+!public/uploads/.gitkeep
